@@ -1,6 +1,12 @@
 name: 'Tag and Release'
 description: 'Creates a new GitHub release from a specified commit'
 inputs:
+  repo:
+    description: 'repo name'
+    required: true
+  owner:
+    description: 'repo owner'
+    required: true
   tag_name:
     description: 'The name of the tag to create, e.g. v1.0.0'
     required: true
