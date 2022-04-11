@@ -8,11 +8,13 @@ async function main() {
   const body = core.getInput('body');
   const draft = core.getInput('draft') === 'true';
   const prerelease = core.getInput('prerelease') === 'true';
+  const owner = core.getInput('owner');
+  const repo = core.getInput('repo');
 
   const github = new GitHub(process.env.GITHUB_TOKEN);
   const r = await github.repos.createRelease({
-    owner: context.repo.owner,
-    repo: context.repo.repo,
+    owner,
+    repo,
     tag_name: tagName,
     target_commitish: commit,
     name: releaseName,
